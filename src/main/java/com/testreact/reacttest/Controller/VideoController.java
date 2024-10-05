@@ -15,24 +15,24 @@ import java.util.List;
 @RequestMapping("/api/videos")
 public class VideoController {
 
-    @Autowired
-    private VideoService videoService;
+    // @Autowired
+    // private VideoService videoService;
 
-    @PostMapping("/upload")
-    public Video uploadVideo(@RequestParam("file") MultipartFile file, @RequestParam("title") String title) {
-        return videoService.storeVideo(file, title);
-    }
+    // @PostMapping("/upload")
+    // public Video uploadVideo(@RequestParam("file") MultipartFile file, @RequestParam("title") String title) {
+    //     return videoService.storeVideo(file, title);
+    // }
 
-    @GetMapping("/all")
-    public List<Video> getAllVideos() {
-        return videoService.getAllVideos();
-    }
+    // @GetMapping("/all")
+    // public List<Video> getAllVideos() {
+    //     return videoService.getAllVideos();
+    // }
 
-    @GetMapping("/stream/{fileName}")
-    public ResponseEntity<Resource> streamVideo(@PathVariable String fileName) {
-        Resource resource = videoService.loadVideoAsResource(fileName);
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
-                .body(resource);
-    }
+    // @GetMapping("/stream/{fileName}")
+    // public ResponseEntity<Resource> streamVideo(@PathVariable String fileName) {
+    //     Resource resource = videoService.loadVideoAsResource(fileName);
+    //     return ResponseEntity.ok()
+    //             .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
+    //             .body(resource);
+    // }
 }
